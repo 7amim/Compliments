@@ -1,0 +1,16 @@
+{
+  "name": "haccolade",
+  "version": "1.0.0",
+  "description": "compliments io",
+  "main": "server.js",
+  "dependencies": {
+    "express": "*",
+    "watson-developer-cloud/tone-analyzer/v3": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Marcel Rusu, Tamim Faruk, Fahad Rahman, Mahmood Mahmood",
+  "license": "ISC"
+}
