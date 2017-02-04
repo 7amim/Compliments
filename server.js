@@ -28,18 +28,6 @@ function applyAnalyzer(text, callback) {
 }
 
 
-app.get('/*', (req, res) => {
-  // console.log(req.url)
-  const text = req.url;
-  toneAnalyzer.tone({ text }, function(err, tone) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(JSON.stringify(tone, null, 2));
-    }
-  });
-});
-
 app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === 'keyIsCompliments') {

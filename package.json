@@ -13,7 +13,7 @@
     "ejs": "2.4.1",
     "body-parser":"*",
     "watson-developer-cloud":"*",
-    "express": "4.13.3"
+    "express": "*"
   },
   "repository": {
     "type": "git",
