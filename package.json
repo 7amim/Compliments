@@ -12,6 +12,7 @@
   "dependencies": {
     "ejs": "2.4.1",
     "body-parser":"*",
+    "request": "*",
     "watson-developer-cloud":"*",
     "express": "*"
   },
