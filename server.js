@@ -29,6 +29,8 @@ function applyAnalyzer(text, callback) {
 
 
 app.get('/webhook', function(req, res) {
+  console.log(req.query);
+
   if (req.query['hub.mode'] === 'subscribe' &&
       req.query['hub.verify_token'] === 'keyIsCompliments') {
     console.log("Validating webhook");
@@ -41,6 +43,7 @@ app.get('/webhook', function(req, res) {
 
 app.post('/webhook', function (req, res) {
   let data = req.body;
+  console.log(JSON.Stringify(data));
   console.log('post');
   // Make sure this is a page subscription
   if (data.object === 'page') {
