@@ -43,7 +43,7 @@ app.get('/webhook', function(req, res) {
 
 app.post('/webhook', function (req, res) {
   let data = req.body;
-  console.log(JSON.Stringify(data));
+  console.log(JSON.stringify(data));
   console.log('post');
   // Make sure this is a page subscription
   if (data.object === 'page') {
@@ -128,7 +128,7 @@ function sendTextMessage(recipientId, messageText) {
 function callSendAPI(messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: 'EAADwhhaDOhgBAHFrDaMm2QNBKZCTYoMbh8RljxYpDunouhbZA9JDZATBbwB74K0t869SZAufZAIKlXoPeeF9rjXGL2JiF0ZCts8cLm6D9mfzZB4l0Q4H4N2dQxrz2SVxMGVwPWApVtWO1zyYBWAdl7bjth6lKwIkAiVM3vNvxZBZBugZDZD' },
+    qs: { access_token: 'EAADwhhaDOhgBAEQ3MKF56klGxI1ZAkzVb05Gv4yiW0TWRV7T9xkeR02gQh7Cpc8RrkwAikmO42IljZBBZAe9iFIi7VeC9I04J0NZCRcFt6YagpBhc85X2X0TglrZCMOoNDcs8kVaNZBbk3J4ae02s1ppBTnjZBMUZCg4b0MAMylXnAZDZD' },
     method: 'POST',
     json: messageData
   }, function (error, response, body) {
