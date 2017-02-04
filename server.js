@@ -158,6 +158,6 @@ function callSendAPI(messageData) {
 
 // Token: curl -ik -X POST "EAAXHyMQZAUEwBAJYANStY4MbhK3sj70V8XGmaJMfCA7WCJdxCJvwjIYg6FApHfYPz44G811b4sWZAvfLEa8ompZArd1pZARsZBP8eAvvohnE0iPy94NKT3bOg4tBHzmqt2PGpDZB6zJ3h3GlqvHc3VZCBMJVzZBmOEhaIhMk5QH38AZDZD"
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Listening on port: 3000');
 });
