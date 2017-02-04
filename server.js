@@ -98,13 +98,14 @@ function receivedMessage(event) {
 
       default:
         applyAnalyzer(messageText, (emotions) => {
-          let strongestEmotion = emotions[0];
+          let str = ""
           emotions.forEach((emotion) => {
-            if (emotion.score >= strongestEmotion.score){
-              strongestEmotion = emotion;
-            }
+            str += emotion.tone_id + " - " + emotion.score + '\n'
+            // if (emotion.score >= strongestEmotion.score){
+            //   strongestEmotion = emotion;
+            // }
           });
-          sendTextMessage(senderID, strongestEmotion.tone_id + " : " + strongestEmotion.score);
+          sendTextMessage(senderID, str);
         });
     }
   } else if (messageAttachments) {
