@@ -1,16 +1,26 @@
 {
-  "name": "haccolade",
-  "version": "1.0.0",
-  "description": "compliments io",
-  "main": "server.js",
-  "dependencies": {
-    "express": "*",
-    "watson-developer-cloud/tone-analyzer/v3": "*"
+  "name": "com",
+  "version": "0.2.5",
+  "description": "A sample Node.js app using Express 4",
+  "engines": {
+    "node": "5.9.1"
   },
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js"
   },
-  "author": "Marcel Rusu, Tamim Faruk, Fahad Rahman, Mahmood Mahmood",
-  "license": "ISC"
+  "dependencies": {
+    "ejs": "2.4.1",
+    "express": "4.13.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
