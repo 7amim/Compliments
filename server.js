@@ -104,7 +104,7 @@ function receivedMessage(event) {
               strongestEmotion = emotion;
             }
           });
-          sendTextMessage(senderID, emotion.tone_id + " : " + emotion.score);
+          sendTextMessage(senderID, strongestEmotion.tone_id + " : " + strongestEmotion.score);
         });
     }
   } else if (messageAttachments) {
