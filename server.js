@@ -3,7 +3,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-
+const request = require('request');
 app.use(bodyParser.json());
 
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
