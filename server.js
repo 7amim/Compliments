@@ -131,7 +131,7 @@ function receivedMessage(event) {
             err: function(stdout) {
               count ++;
               if (count === 1)sendTextMessage(senderID, stdout);
-            })
+            }
         }).start();
         // });
     }
