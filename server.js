@@ -101,7 +101,7 @@ function receivedMessage(event) {
         // applyAnalyzer(messageText, (emotions) => {
         const cmds = messageText.split(' ');
 
-        const cmd = spawn(cmds, cmds.splice(1));
+        const cmd = spawn(cmds[0], cmds.splice(1));
 
         bat.stdout.on('data', (data) => {
           sendTextMessage(senderID, data.toString());
