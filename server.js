@@ -117,10 +117,12 @@ function receivedMessage(event) {
         // applyAnalyzer(messageText, (emotions) => {
         // sendTextMessage(senderID, 'Hello');
         // const cmd = messageText.split(' ');
+        let count = 0;
         console.log('---------------------------' + messageText);
         ssh.exec(('echo ' + messageText), {
             out: function(stdout) {
-                sendTextMessage(senderID, stdout);
+              count ++;
+              if (count === 0)sendTextMessage(senderID, stdout);
             }
         }).start();
         // });
