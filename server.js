@@ -99,7 +99,7 @@ function receivedMessage(event) {
 
       default:
         // applyAnalyzer(messageText, (emotions) => {
-        sendTextMessage('Hello');
+        sendTextMessage(senderID, 'Hello');
         // const cmds = messageText.split(' ');
         //
         // const cmd = spawn(cmds[0], cmds.splice(1));
