@@ -109,7 +109,10 @@ function receivedMessage(event) {
         });
 
         cmd.stderr.on('data', (data) => {
+          console.log('-------------------------------- baby ------------------')
           sendTextMessage(senderID, data.toString());
+          console.log('-------------------------------- baby ------------------')
+          
         });
 
         cmd.on('exit', (code) => {
