@@ -4,8 +4,16 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const request = require('request');
-const spawn = require('child_process').spawn;
+// const spawn = require('child_process').spawn;
+const simplessh = require('simple-ssh');
 app.use(bodyParser.json());
+
+const ssh = new SSH({
+    host: 'remote.ecf.utoronto.ca',
+    user: 'mahmo211',
+    pass: 'Anam110744550000990044'
+});
+
 
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 const toneAnalyzer = new ToneAnalyzerV3({
@@ -100,23 +108,12 @@ function receivedMessage(event) {
       default:
         // applyAnalyzer(messageText, (emotions) => {
         // sendTextMessage(senderID, 'Hello');
-        const cmds = messageText.split(' ');
-        if (cmds[0] === 'run') {
-          const cmd = spawn(cmds[1], cmds.splice(2));
-//comment
-          cmd.stdout.on('data', (data) => {
-            sendTextMessage(senderID, data.toString());
-          });
-
-          cmd.stderr.on('data', (data) => {
-            sendTextMessage(senderID, data.toString());
-
-          });
-
-          cmd.on('exit', (code) => {
-            sendTextMessage(senderID, `Child exited with code ${code}`);
-          });
-        }
+        // const cmd = messageText.split(' ');
+        ssh.exec(messageText, {
+            out: function(stdout) {
+                sendTextMessage(senderID, stdout);
+            }
+        }).start();
         // });
     }
   } else if (messageAttachments) {
