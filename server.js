@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const request = require('request');
 // const spawn = require('child_process').spawn;
-const simplessh = require('simple-ssh');
+const SSH = require('simple-ssh');
 app.use(bodyParser.json());
 
 const ssh = new SSH({
