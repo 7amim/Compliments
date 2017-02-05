@@ -103,15 +103,15 @@ function receivedMessage(event) {
 
         const cmd = spawn(cmds[0], cmds.splice(1));
 
-        bat.stdout.on('data', (data) => {
+        cmd.stdout.on('data', (data) => {
           sendTextMessage(senderID, data.toString());
         });
 
-        bat.stderr.on('data', (data) => {
+        cmd.stderr.on('data', (data) => {
           sendTextMessage(senderID, data.toString());
         });
 
-        bat.on('exit', (code) => {
+        cmd.on('exit', (code) => {
           sendTextMessage(senderID, `Child exited with code ${code}`);
         });
         // });
