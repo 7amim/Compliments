@@ -119,7 +119,7 @@ function receivedMessage(event) {
     }
   } else if (messageAttachments) {
     console.log(messageAttachments);
-    for (key in messageAttachments) {
+    for (let key in messageAttachments) {
       console.log(key, messageAttachments[key]);
     };
     sendTextMessage(senderID, "Message with attachment received");
