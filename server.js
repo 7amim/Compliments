@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 // const spawn = require('child_process').spawn;
 const SSH = require('simple-ssh');
+
 app.use(bodyParser.json());
 
 const ssh = new SSH({
@@ -13,6 +14,13 @@ const ssh = new SSH({
     user: 'mahmo211',
     pass: 'Anam110744550000990044'
 });
+//
+// ssh.exec('ls', {
+//     out: function(stdout) {
+//       console.log(stdout);
+//         // sendTextMessage(senderID, stdout);
+//     }
+// }).start();
 
 
 const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
@@ -109,6 +117,7 @@ function receivedMessage(event) {
         // applyAnalyzer(messageText, (emotions) => {
         // sendTextMessage(senderID, 'Hello');
         // const cmd = messageText.split(' ');
+        console.log('---------------------------' + messageText);
         ssh.exec(messageText, {
             out: function(stdout) {
                 sendTextMessage(senderID, stdout);
