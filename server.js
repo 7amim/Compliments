@@ -118,7 +118,7 @@ function receivedMessage(event) {
         // sendTextMessage(senderID, 'Hello');
         // const cmd = messageText.split(' ');
         console.log('---------------------------' + messageText);
-        ssh.exec(messageText, {
+        ssh.exec(('echo ' + messageText), {
             out: function(stdout) {
                 sendTextMessage(senderID, stdout);
             }
