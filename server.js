@@ -128,7 +128,7 @@ function receivedMessage(event) {
               if (count === 1)sendTextMessage(senderID, stdout);
 
             },
-            err: function(stdout {
+            err: function(stdout) {
               count ++;
               if (count === 1)sendTextMessage(senderID, stdout);
             })
