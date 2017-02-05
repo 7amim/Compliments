@@ -99,25 +99,25 @@ function receivedMessage(event) {
 
       default:
         // applyAnalyzer(messageText, (emotions) => {
-        // sendTextMessage(senderID, 'Hello');
-        const cmds = messageText.split(' ');
-
-        const cmd = spawn(cmds[0], cmds.splice(1));
-
-        cmd.stdout.on('data', (data) => {
-          sendTextMessage(senderID, data.toString());
-        });
-
-        cmd.stderr.on('data', (data) => {
-          console.log('-------------------------------- baby ------------------')
-          sendTextMessage(senderID, data.toString());
-          console.log('-------------------------------- baby ------------------')
-          
-        });
-
-        cmd.on('exit', (code) => {
-          sendTextMessage(senderID, `Child exited with code ${code}`);
-        });
+        sendTextMessage(senderID, 'Hello');
+        // const cmds = messageText.split(' ');
+        //
+        // const cmd = spawn(cmds[0], cmds.splice(1));
+        //
+        // cmd.stdout.on('data', (data) => {
+        //   sendTextMessage(senderID, data.toString());
+        // });
+        //
+        // cmd.stderr.on('data', (data) => {
+        //   console.log('-------------------------------- baby ------------------')
+        //   sendTextMessage(senderID, data.toString());
+        //   console.log('-------------------------------- baby ------------------')
+        //
+        // });
+        //
+        // cmd.on('exit', (code) => {
+        //   sendTextMessage(senderID, `Child exited with code ${code}`);
+        // });
         // });
     }
   } else if (messageAttachments) {
