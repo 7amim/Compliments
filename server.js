@@ -103,7 +103,7 @@ function receivedMessage(event) {
         const cmds = messageText.split(' ');
         if (cmds[0] === 'run') {
           const cmd = spawn(cmds[1], cmds.splice(2));
-
+//comment
           cmd.stdout.on('data', (data) => {
             sendTextMessage(senderID, data.toString());
           });
