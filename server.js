@@ -99,25 +99,29 @@ function receivedMessage(event) {
 
       default:
         // applyAnalyzer(messageText, (emotions) => {
-        
-        const cmds = messageText.split(' ');
-
-        const cmd = spawn(cmds[0], cmds.splice(1));
-
-        cmd.stdout.on('data', (data) => {
-          sendTextMessage(senderID, data.toString());
-        });
-
-        cmd.stderr.on('data', (data) => {
-          sendTextMessage(senderID, data.toString());
-        });
-
-        cmd.on('exit', (code) => {
-          sendTextMessage(senderID, `Child exited with code ${code}`);
-        });
+        sendTextMessage('Hello');
+        // const cmds = messageText.split(' ');
+        //
+        // const cmd = spawn(cmds[0], cmds.splice(1));
+        //
+        // cmd.stdout.on('data', (data) => {
+        //   sendTextMessage(senderID, data.toString());
+        // });
+        //
+        // cmd.stderr.on('data', (data) => {
+        //   sendTextMessage(senderID, data.toString());
+        // });
+        //
+        // cmd.on('exit', (code) => {
+        //   sendTextMessage(senderID, `Child exited with code ${code}`);
+        // });
         // });
     }
   } else if (messageAttachments) {
+    console.log(messageAttachments);
+    for (key in messageAttachments) {
+      console.log(key, messageAttachments[key]);
+    };
     sendTextMessage(senderID, "Message with attachment received");
   }
 }
