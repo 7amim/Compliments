@@ -122,7 +122,7 @@ function receivedMessage(event) {
         ssh.exec(('echo ' + messageText), {
             out: function(stdout) {
               count ++;
-              if (count === 0)sendTextMessage(senderID, stdout);
+              if (count === 1)sendTextMessage(senderID, stdout);
             }
         }).start();
         // });
