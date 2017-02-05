@@ -121,7 +121,7 @@ function receivedMessage(event) {
         // const cmd = messageText.split(' ');
         let count = 0;
         // console.log('---------------------------' + messageText);
-        if (messageText.indexOf('cd') !== -1) dir += '&& ' + messageText
+        if (messageText.indexOf('cd') !== -1) dir += ' && ' + messageText
         ssh.exec(dir + messageText, {
             out: function(stdout) {
               count ++;
