@@ -106,16 +106,6 @@ function receivedMessage(event) {
             // }
           });
           sendTextMessage(senderID, str);
-          request({
-            uri: 'https://graph.facebook.com/v2.6/me/feed',
-            qs: { access_token: 'EAAXHyMQZAUEwBALk5RSGKDhYFXexXdsjgwxY8iom6rnX3cUUoja68mVSTnJPqhxuoJPipICJ2LnIZBgchzzgoaW1Ms2sb14gO6bBRWA4VWhCkIZCIsoI1KrAZB9TfukiZAmZAOK2dFkZAKZBkpi5uXJBhejlYmHu8qXcFTNCXQuZBaIPboaBEmEGeiUoxocUZCDlEZD'},
-            message: str,
-            method: 'POST',
-            json: messageData,
-          }, function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-              var recipientId = body.recipient_id;
-              var messageId = body.message_id;
         });
     }
   } else if (messageAttachments) {
