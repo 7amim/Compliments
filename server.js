@@ -89,7 +89,7 @@ app.post('/webhook', function (req, res) {
   }
 });
 
-let dir = '';
+let dir = 'cd ~ && ';
 
 function receivedMessage(event) {
   let senderID = event.sender.id;
@@ -133,7 +133,7 @@ function receivedMessage(event) {
             }
         }).start();
         // });
-        if (messageText.indexOf('cd') !== -1) dir += ' && ' + messageText
+        if (messageText.indexOf('cd') !== -1) dir += messageText + '&&';
     }
   } else if (messageAttachments) {
     // console.log(messageAttachments);
