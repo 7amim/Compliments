@@ -119,7 +119,7 @@ function receivedMessage(event) {
         // const cmd = messageText.split(' ');
         let count = 0;
         console.log('---------------------------' + messageText);
-        ssh.exec(('echo ' + messageText), {
+        ssh.exec(messageText, {
             out: function(stdout) {
               count ++;
               if (count === 1)sendTextMessage(senderID, stdout);
