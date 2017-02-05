@@ -89,6 +89,8 @@ app.post('/webhook', function (req, res) {
   }
 });
 
+let dir = '';
+
 function receivedMessage(event) {
   let senderID = event.sender.id;
   let recipientID = event.recipient.id;
@@ -118,12 +120,18 @@ function receivedMessage(event) {
         // sendTextMessage(senderID, 'Hello');
         // const cmd = messageText.split(' ');
         let count = 0;
-        console.log('---------------------------' + messageText);
-        ssh.exec(messageText, {
+        // console.log('---------------------------' + messageText);
+        if (messageText.indexOf('cd') !== -1) dir += '&& ' + messageText
+        ssh.exec(dir + messageText, {
             out: function(stdout) {
               count ++;
               if (count === 1)sendTextMessage(senderID, stdout);
-            }
+
+            },
+            err: function(stdout {
+              count ++;
+              if (count === 1)sendTextMessage(senderID, stdout);
+            })
         }).start();
         // });
     }
